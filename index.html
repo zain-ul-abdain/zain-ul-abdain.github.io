@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Zain Ul Abdain — senior backend engineer specialising in payments infrastructure. Stripe Connect marketplace payouts, Escrow.com, multi-gateway architecture, idempotent webhooks, and multi-tenant SaaS.">
+<meta name="author" content="Zain Ul Abdain">
+<link rel="canonical" href="https://zain-ul-abdain.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zain Ul Abdain — Payments Engineer">
+<meta property="og:description" content="I build payment systems that reconcile — multi-gateway checkout, marketplace payouts, and the webhook plumbing that keeps ledgers honest.">
+<meta property="og:url" content="https://zain-ul-abdain.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0B5B6B" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1013" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%B3</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Zain Ul Abdain","jobTitle":"Senior Backend Engineer","description":"Backend engineer specialising in payments infrastructure and multi-tenant SaaS.","url":"https://zain-ul-abdain.github.io/","email":"zainburfat112@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"},"sameAs":["https://linkedin.com/in/zain-ul-abdain","https://github.com/zain-ul-abdain"],"knowsAbout":["Payment Gateway Integration","Stripe Connect","Laravel","PHP","Vue.js","Multi-Tenant SaaS","PostgreSQL"]}
+</script>
+<title>Zain Ul Abdain — Payments Engineer</title>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+
+<style>
+  :root {
+    --bg: #F3F6F7;
+    --surface: #FFFFFF;
+    --surface-2: #EDF1F2;
+    --ink: #0E1518;
+    --ink-2: #33444A;
+    --muted: #5E7178;
+    --line: #D2DCDF;
+    --line-soft: #E3EAEC;
+    --accent: #0B5B6B;
+    --accent-wash: #E0EDF0;
+    --gold: #8A6314;
+    --gold-wash: #F5EBD8;
+    --shadow: 0 1px 2px rgba(14, 21, 24, .04), 0 12px 32px -18px rgba(14, 21, 24, .25);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0A1013;
+      --surface: #111A1E;
+      --surface-2: #162126;
+      --ink: #E8EFF1;
+      --ink-2: #C0CFD4;
+      --muted: #8DA2A9;
+      --line: #223037;
+      --line-soft: #1A262B;
+      --accent: #4FB6CB;
+      --accent-wash: #10262C;
+      --gold: #D3A54A;
+      --gold-wash: #241D0E;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 12px 32px -18px rgba(0, 0, 0, .8);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0A1013;
+    --surface: #111A1E;
+    --surface-2: #162126;
+    --ink: #E8EFF1;
+    --ink-2: #C0CFD4;
+    --muted: #8DA2A9;
+    --line: #223037;
+    --line-soft: #1A262B;
+    --accent: #4FB6CB;
+    --accent-wash: #10262C;
+    --gold: #D3A54A;
+    --gold-wash: #241D0E;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 12px 32px -18px rgba(0, 0, 0, .8);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink-2);
+    font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 68px;
+  }
+
+  h1, h2 { font-family: Newsreader, Georgia, serif; font-weight: 400; }
+
+  h1 {
+    font-size: clamp(44px, 8vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -.021em;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: clamp(25px, 4vw, 31px);
+    line-height: 1.15;
+    letter-spacing: -.014em;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -.006em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  p { margin: 0; max-width: 66ch; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- hero ---------- */
+
+  header.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .lede {
+    font-family: Newsreader, Georgia, serif;
+    font-size: clamp(20px, 3.2vw, 24px);
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 40ch;
+  }
+
+  .lede b { color: var(--ink); font-weight: 500; }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    align-items: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13.5px;
+  }
+
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 13px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--surface);
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: border-color .15s, color .15s;
+  }
+
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .avail {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--accent);
+    background: var(--accent-wash);
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    border-radius: 3px;
+    padding: 6px 12px;
+    width: fit-content;
+  }
+
+  .avail::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex: none;
+  }
+
+  /* ---------- metrics ---------- */
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .metric {
+    background: var(--surface);
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .metric .v {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -.03em;
+  }
+
+  .metric .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  /* ---------- sections ---------- */
+
+  section { display: flex; flex-direction: column; gap: 26px; }
+
+  .sec-head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ---------- projects ---------- */
+
+  .project {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .project-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .project-name {
+    font-family: Newsreader, Georgia, serif;
+    font-size: 26px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -.012em;
+  }
+
+  .project-role {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+
+  .highlights {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .highlights li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    max-width: 64ch;
+  }
+
+  .highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .58em;
+    width: 9px;
+    height: 1.5px;
+    background: var(--accent);
+  }
+
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 4px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .chip {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    color: var(--muted);
+    background: var(--surface-2);
+    border: 1px solid var(--line-soft);
+    border-radius: 3px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+
+  .chip.is-key {
+    color: var(--accent);
+    background: var(--accent-wash);
+    border-color: color-mix(in srgb, var(--accent) 25%, transparent);
+    font-weight: 500;
+  }
+
+  /* ---------- capability grid ---------- */
+
+  .caps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .cap {
+    background: var(--surface);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .cap-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .cap p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+
+  /* ---------- note ---------- */
+
+  .note {
+    padding: 18px 20px;
+    background: var(--gold-wash);
+    border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+    border-radius: 4px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+  }
+
+  .note b { color: var(--gold); font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+
+  /* ---------- contact ---------- */
+
+  .contact {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  footer {
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 620px) {
+    .page { padding: 44px 18px 72px; gap: 52px; }
+    .project, .contact { padding: 22px 20px; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="hero">
+    <span class="eyebrow">Backend engineer · Payments infrastructure</span>
+    <h1>Zain Ul Abdain</h1>
+    <p class="lede">I build <b>payment systems that reconcile</b> — multi-gateway checkout, marketplace payouts, and the webhook plumbing that keeps ledgers honest when networks don't cooperate.</p>
+    <div class="links">
+      <a href="mailto:zainburfat112@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/zain-ul-abdain">LinkedIn</a>
+      <a href="https://github.com/zain-ul-abdain">GitHub</a>
+      <a href="https://smartindussystems.com/">Smart Indus Systems</a>
+      <a href="https://schoolninty.com/">SchoolNinty</a>
+    </div>
+    <span class="avail">Dubai, UAE — available immediately, remote or on-site</span>
+  </header>
+
+  <section>
+    <div class="metrics">
+      <div class="metric"><span class="v">8+</span><span class="k">Years PHP / Laravel</span></div>
+      <div class="metric"><span class="v">5</span><span class="k">Payment gateways in production</span></div>
+      <div class="metric"><span class="v">1,486</span><span class="k">Tests on current SaaS</span></div>
+      <div class="metric"><span class="v">2</span><span class="k">Products live today</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Selected work</span>
+      <h2>Two production systems, both handling money.</h2>
+    </div>
+
+    <article class="project">
+      <div class="project-top">
+        <span class="project-name">Aviaspares · aviatrading.com</span>
+        <span class="project-role">Backend Lead · 2023–2026</span>
+      </div>
+      <p>A B2B aviation parts marketplace where buyers and sellers transact across borders. I owned the payments platform end to end — the part of the system where a bug doesn't throw an error, it loses someone's money.</p>
+      <ul class="highlights">
+        <li><strong>Marketplace split payments with Stripe Connect.</strong> Connected-account onboarding, platform commission, and scheduled transfer releases to sellers — the multi-party settlement problem, solved in production.</li>
+        <li><strong>Escrow.com integration</strong> for high-value transactions, including a reconciliation job that continuously re-syncs escrow state against local records rather than trusting a single webhook to have arrived.</li>
+        <li><strong>Five gateways behind one interface.</strong> Stripe, Stripe Connect, PayPal, Escrow.com and Wise sit behind a single contract — checkout, order retrieval, transaction lookup, refund — with a resolver that picks the right gateway per payment and region.</li>
+        <li><strong>Idempotent webhook processing.</strong> Every inbound event is signature-verified per provider, persisted with a uniqueness constraint on <span class="chip" style="padding:1px 5px">provider + event_id</span>, and marked processed exactly once — so duplicate deliveries and retries can't double-credit an account.</li>
+        <li><strong>Sanctions and country validation</strong> on payment methods, because an aviation parts marketplace has export-control exposure that most e-commerce doesn't.</li>
+      </ul>
+      <div class="stack">
+        <span class="chip is-key">Stripe Connect</span>
+        <span class="chip is-key">Escrow.com</span>
+        <span class="chip is-key">PayPal</span>
+        <span class="chip is-key">Wise</span>
+        <span class="chip">Laravel</span>
+        <span class="chip">Webhook idempotency</span>
+        <span class="chip">Reconciliation</span>
+        <span class="chip">Elasticsearch</span>
+        <span class="chip">Docker / ECS</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-top">
+        <span class="project-name">SchoolNinty</span>
+        <span class="project-role">Founder &amp; sole engineer · 2026–</span>
+      </div>
+      <p>A multi-tenant school management SaaS — <a href="https://schoolninty.com/">schoolninty.com</a> — built and operated single-handedly. One deployment serves many schools from a shared database and codebase, every query scoped by tenant.</p>
+      <ul class="highlights">
+        <li><strong>Multi-tenancy done at the data layer</strong>, not bolted on: shared schema with per-school scoping across students, teachers, attendance, fee invoicing, exams, timetables and announcements, plus a separate super-admin plane for school and subscription management.</li>
+        <li><strong>1,486 tests.</strong> Fee invoicing and attendance are the kind of thing parents notice when it's wrong, so the suite is the product's actual safety net.</li>
+        <li><strong>Five dedicated queue workers</strong> — default, high, emails, sms, reports — under Supervisor, so a slow report run never delays a fee reminder.</li>
+        <li><strong>Modern stack, deliberately:</strong> Laravel 13 on PHP 8.4, Inertia with Vue 3, PostgreSQL with pgvector, Redis for cache and queues.</li>
+      </ul>
+      <div class="stack">
+        <span class="chip is-key">Multi-tenant SaaS</span>
+        <span class="chip">Laravel 13</span>
+        <span class="chip">PHP 8.4</span>
+        <span class="chip">Vue 3 + Inertia</span>
+        <span class="chip">PostgreSQL + pgvector</span>
+        <span class="chip">Redis</span>
+        <span class="chip">Supervisor queues</span>
+        <span class="chip">Docker</span>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Open source</span>
+      <h2>laravel-webhook-ledger</h2>
+    </div>
+    <article class="project">
+      <div class="project-top">
+        <span class="project-name">Exactly-once webhook processing</span>
+        <span class="project-role">MIT · PHP 8.2–8.4</span>
+      </div>
+      <p>Every payment provider redelivers webhooks — routinely, not occasionally. The obvious guard is a race condition, and on a handler that moves money that race is a double credit:</p>
+      <ul class="highlights">
+        <li><strong>The bug most codebases ship:</strong> <span class="chip" style="padding:1px 5px">if (exists) return; else insert;</span> has a gap between the check and the insert. Two concurrent redeliveries both pass the check and both process.</li>
+        <li><strong>The fix:</strong> let the database arbitrate. A unique constraint on <span class="chip" style="padding:1px 5px">provider + event_id</span>, with the constraint violation treated as the duplicate signal rather than as an error. No window, because no gap.</li>
+        <li><strong>Plus the parts that bite in production:</strong> verification before any write, timestamp tolerance against replay, constant-time comparison, secret rotation, content fingerprinting for providers that send no event id, stale-claim takeover when a worker dies mid-handler, and deliberate replay instead of silent retries.</li>
+        <li><strong>18 tests</strong> covering concurrent redelivery, tampered and replayed signatures, rotation and stale claims — CI across PHP 8.2–8.4 and Laravel 11/12.</li>
+      </ul>
+      <div class="stack">
+        <span class="chip is-key">Idempotency</span>
+        <span class="chip is-key">Signature verification</span>
+        <span class="chip">Laravel package</span>
+        <span class="chip">Pest</span>
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">Docker</span>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">What I'm good at</span>
+      <h2>The unglamorous half of payments.</h2>
+    </div>
+    <p>Taking a card payment is a solved problem. What isn't solved, in most codebases I've seen, is what happens when the webhook arrives twice, or never; when a refund is issued against a transfer that already released; when the gateway says one thing and your ledger says another.</p>
+    <div class="caps">
+      <div class="cap">
+        <span class="cap-title">Multi-gateway architecture</span>
+        <p>A single contract per gateway, a resolver to choose between them, and DTOs at the boundary — so adding a provider doesn't mean touching checkout.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Idempotency &amp; webhooks</span>
+        <p>Per-provider signature verification, event persistence with uniqueness constraints, and exactly-once processing that survives retries and out-of-order delivery.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Reconciliation</span>
+        <p>Scheduled jobs that re-derive state from the provider rather than trusting the event stream — the difference between a system that looks correct and one that is.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Marketplace payouts</span>
+        <p>Connected accounts, commission splits, hold-and-release scheduling, and cascading refunds back through seller balances.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Multi-tenant SaaS</span>
+        <p>Tenant scoping at the data layer, per-tenant configuration, and the operational tooling to run many customers from one deployment.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Event-driven Laravel</span>
+        <p>Events, listeners, observers and queued jobs used to keep payment state transitions explicit and auditable rather than buried in controllers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">Also</span>
+      <h2>Background.</h2>
+    </div>
+    <p>Eight-plus years across PHP and Laravel, with Vue 3 and TypeScript on the front end and Java/Spring Boot earlier in my career. I run <a href="https://smartindussystems.com/">Smart Indus Systems</a>, a small development studio, and I work AI-forward — Claude Code is part of my daily toolchain, not a novelty.</p>
+    <p>Based in the UAE, originally from Pakistan. Comfortable working remotely across GST, European and US-overlapping hours.</p>
+  </section>
+
+  <section>
+    <div class="contact">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Available for work now.</h2>
+      <p>Open to senior backend or full-stack roles, and to contract work on payments integration specifically — Stripe Connect marketplaces, multi-gateway consolidation, or fixing a webhook pipeline that's double-processing.</p>
+      <div class="links">
+        <a href="mailto:zainburfat112@gmail.com">zainburfat112@gmail.com</a>
+        <a href="tel:+971569106314">+971 56 910 6314</a>
+        <a href="https://linkedin.com/in/zain-ul-abdain">linkedin.com/in/zain-ul-abdain</a>
+        <a href="https://github.com/zain-ul-abdain">github.com/zain-ul-abdain</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Zain Ul Abdain · Backend &amp; payments engineering</span>
+    <span>Built with Laravel, Vue and too much coffee</span>
+  </footer>
+
+</div>
+</body>
+</html>
