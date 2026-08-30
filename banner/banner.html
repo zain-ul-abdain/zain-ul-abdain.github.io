@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { width: 1584px; height: 396px; overflow: hidden; }
+
+  .banner {
+    position: relative;
+    width: 1584px;
+    height: 396px;
+    background:
+      radial-gradient(1100px 500px at 78% 40%, #123A44 0%, rgba(18,58,68,0) 62%),
+      linear-gradient(118deg, #070C0F 0%, #0A1318 45%, #0C1E24 100%);
+    overflow: hidden;
+    font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+  }
+
+  /* Fine ledger ruling — a payments motif rather than generic tech texture.
+     Kept at very low contrast so it reads as paper stock, not as a grid. */
+  .rules {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(233, 240, 242, .045) 0px,
+      rgba(233, 240, 242, .045) 1px,
+      transparent 1px,
+      transparent 34px
+    );
+    mask-image: linear-gradient(100deg, transparent 18%, #000 48%, #000 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(100deg, transparent 18%, #000 48%, #000 88%, transparent 100%);
+  }
+
+  /* Single hairline column marker, like a ledger's rule. */
+  .column-rule {
+    position: absolute;
+    left: 356px;
+    top: 62px;
+    bottom: 62px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(79,182,203,.55) 22%, rgba(79,182,203,.55) 78%, transparent);
+  }
+
+  .content {
+    position: absolute;
+    left: 410px;
+    right: 96px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: #4FB6CB;
+  }
+
+  h1 {
+    font-family: Newsreader, Georgia, serif;
+    font-weight: 400;
+    font-size: 62px;
+    line-height: 1.04;
+    letter-spacing: -.018em;
+    color: #EDF3F5;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: #7FD3E4;
+  }
+
+  .stack {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16.5px;
+    color: #A7BAC1;
+    letter-spacing: .01em;
+  }
+
+  .stack .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #4FB6CB;
+    opacity: .75;
+    flex: none;
+  }
+
+  .footer {
+    position: absolute;
+    right: 96px;
+    bottom: 34px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 15px;
+    color: #7E939B;
+  }
+
+  .footer .sep { color: #33474E; }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="rules"></div>
+    <div class="column-rule"></div>
+
+    <div class="content">
+      <div class="eyebrow">Payments Infrastructure</div>
+      <h1>Payment systems that <em>reconcile</em></h1>
+      <div class="stack">
+        <span>Stripe Connect</span><span class="dot"></span>
+        <span>Escrow.com</span><span class="dot"></span>
+        <span>Multi-gateway</span><span class="dot"></span>
+        <span>Idempotent webhooks</span><span class="dot"></span>
+        <span>Laravel</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>zain-ul-abdain.github.io</span>
+      <span class="sep">/</span>
+      <span>Dubai</span>
+    </div>
+  </div>
+</body>
+</html>
