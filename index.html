@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Zain Ul Abdain — senior backend engineer specialising in payments infrastructure. Stripe Connect marketplace payouts, Escrow.com, multi-gateway architecture, idempotent webhooks, and multi-tenant SaaS.">
+<meta name="description" content="Zain Ul Abdain — senior Laravel engineer for payments, SaaS, bug fixes and new features. Stripe Connect and PayPal, multi-tenant SaaS, Laravel upgrades and security fixes, WordPress/WooCommerce, and Docker deployment.">
 <meta name="author" content="Zain Ul Abdain">
 <link rel="canonical" href="https://zain-ul-abdain.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Zain Ul Abdain — Payments Engineer">
-<meta property="og:description" content="I build payment systems that reconcile — multi-gateway checkout, marketplace payouts, and the webhook plumbing that keeps ledgers honest.">
+<meta property="og:title" content="Zain Ul Abdain — Senior Laravel Engineer: payments, SaaS, fixes and features">
+<meta property="og:description" content="Senior Laravel engineer. Payments are my specialism, and I take on bug fixes, new features, upgrades and full Laravel + Vue apps too.">
 <meta property="og:url" content="https://zain-ul-abdain.github.io/">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0B5B6B" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0A1013" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%B3</text></svg>">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Zain Ul Abdain","jobTitle":"Senior Backend Engineer","description":"Backend engineer specialising in payments infrastructure and multi-tenant SaaS.","url":"https://zain-ul-abdain.github.io/","email":"zainburfat112@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"},"sameAs":["https://linkedin.com/in/zain-ul-abdain","https://github.com/zain-ul-abdain"],"knowsAbout":["Payment Gateway Integration","Stripe Connect","Laravel","PHP","Vue.js","Multi-Tenant SaaS","PostgreSQL"]}
+{"@context":"https://schema.org","@type":"Person","name":"Zain Ul Abdain","jobTitle":"Senior Backend Engineer","description":"Senior Laravel engineer: payments, multi-tenant SaaS, bug fixes and new features.","url":"https://zain-ul-abdain.github.io/","email":"zainburfat112@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"},"sameAs":["https://linkedin.com/in/zain-ul-abdain","https://github.com/zain-ul-abdain","https://www.upwork.com/freelancers/~0136bacf625bf5fd24"],"knowsAbout":["Payment Gateway Integration","Stripe Connect","Laravel","PHP","Vue.js","Multi-Tenant SaaS","PostgreSQL"]}
 </script>
-<title>Zain Ul Abdain — Payments Engineer</title>
+<title>Zain Ul Abdain — Senior Laravel Engineer: payments, SaaS, fixes and features</title>
 </head>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -183,6 +183,21 @@
   }
 
   .links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .links a.is-primary {
+    border-color: var(--accent);
+    background: var(--accent-wash);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .review {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  .review .star { color: var(--gold); }
 
   .avail {
     display: inline-flex;
@@ -378,6 +393,17 @@
 
   .cap p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
 
+  /* services: cell dividers drawn per cell, so a short last row leaves blank surface, not grey gaps */
+  .caps.services { gap: 0; background: var(--surface); }
+  .caps.services .cap { box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line); }
+
+  /* ---------- repo link ---------- */
+
+  .repo {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+  }
+
   /* ---------- note ---------- */
 
   .note {
@@ -425,16 +451,18 @@
 <div class="page">
 
   <header class="hero">
-    <span class="eyebrow">Backend engineer · Payments infrastructure</span>
+    <span class="eyebrow">Senior Laravel engineer · Payments, SaaS, fixes &amp; features</span>
     <h1>Zain Ul Abdain</h1>
-    <p class="lede">I build <b>payment systems that reconcile</b> — multi-gateway checkout, marketplace payouts, and the webhook plumbing that keeps ledgers honest when networks don't cooperate.</p>
+    <p class="lede">I build <b>Laravel apps that handle real money</b> — payment systems that reconcile, SaaS that holds up — and I take on the bug fixes and features your app needs this week.</p>
     <div class="links">
+      <a class="is-primary" href="https://www.upwork.com/freelancers/~0136bacf625bf5fd24">Hire me on Upwork</a>
       <a href="mailto:zainburfat112@gmail.com">Email</a>
       <a href="https://linkedin.com/in/zain-ul-abdain">LinkedIn</a>
       <a href="https://github.com/zain-ul-abdain">GitHub</a>
       <a href="https://smartindussystems.com/">Smart Indus Systems</a>
       <a href="https://schoolninty.com/">SchoolNinty</a>
     </div>
+    <span class="review"><span class="star">★ 5.0</span> client review on Upwork</span>
     <span class="avail">Dubai, UAE — available immediately, remote or on-site</span>
   </header>
 
@@ -442,8 +470,54 @@
     <div class="metrics">
       <div class="metric"><span class="v">8+</span><span class="k">Years PHP / Laravel</span></div>
       <div class="metric"><span class="v">5</span><span class="k">Payment gateways in production</span></div>
-      <div class="metric"><span class="v">1,486</span><span class="k">Tests on current SaaS</span></div>
+      <div class="metric"><span class="v">2,300+</span><span class="k">Tests on current SaaS</span></div>
       <div class="metric"><span class="v">2</span><span class="k">Products live today</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">What I can do for you</span>
+      <h2>Fixes, features, and whole apps.</h2>
+    </div>
+    <p>Payments are where I go deepest, but most of what clients need is everyday Laravel: something broke, something needs adding, something needs upgrading. Small jobs are welcome.</p>
+    <div class="caps services">
+      <div class="cap">
+        <span class="cap-title">Bug fixes &amp; small changes</span>
+        <p>A failing job, a broken form, a slow page, a layout that's off. Well-scoped fixes, with a plain explanation of what was wrong.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">New features &amp; full apps</span>
+        <p>A new module in your existing app, or a web app or SaaS from scratch in Laravel and Vue 3, with tests from day one.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Upgrades &amp; security fixes</span>
+        <p>PHP and Laravel version upgrades, dependency updates and security patches, done in small, reversible steps.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">WordPress &amp; WooCommerce</span>
+        <p>Custom plugins, WooCommerce changes, hardening an exposed site, and making a slow one fast.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Payments, APIs &amp; integrations</span>
+        <p>Stripe, Stripe Connect and PayPal, plus third-party APIs and webhooks that don't double-process.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">AI features</span>
+        <p>OpenAI-powered features inside your app: summaries, smart search, assistants and document extraction.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Docker, servers &amp; deployment</span>
+        <p>Dockerised setups, Linux servers, queue workers under Supervisor, and deploys that don't need a maintenance window.</p>
+      </div>
+      <div class="cap">
+        <span class="cap-title">Something else?</span>
+        <p>Send me the problem. I'll tell you honestly whether I'm the right person for it.</p>
+      </div>
+    </div>
+    <div class="note">
+      <b>October 2026</b>
+      When the critical PHP remote-code-execution flaws (CVE-2026-109618 / CVE-2026-109619) were disclosed, I secured a live multi-tenant SaaS the same day.
     </div>
   </section>
 
@@ -455,16 +529,15 @@
 
     <article class="project">
       <div class="project-top">
-        <span class="project-name">Aviaspares · aviatrading.com</span>
+        <span class="project-name">Aviaspares — B2B aviation parts marketplace</span>
         <span class="project-role">Backend Lead · 2023–2026</span>
       </div>
-      <p>A B2B aviation parts marketplace where buyers and sellers transact across borders. I owned the payments platform end to end — the part of the system where a bug doesn't throw an error, it loses someone's money.</p>
+      <p>A marketplace where buyers and sellers trade aviation parts across borders. I owned the payments platform end to end — the part of the system where a bug doesn't throw an error, it loses someone's money.</p>
       <ul class="highlights">
-        <li><strong>Marketplace split payments with Stripe Connect.</strong> Connected-account onboarding, platform commission, and scheduled transfer releases to sellers — the multi-party settlement problem, solved in production.</li>
-        <li><strong>Escrow.com integration</strong> for high-value transactions, including a reconciliation job that continuously re-syncs escrow state against local records rather than trusting a single webhook to have arrived.</li>
-        <li><strong>Five gateways behind one interface.</strong> Stripe, Stripe Connect, PayPal, Escrow.com and Wise sit behind a single contract — checkout, order retrieval, transaction lookup, refund — with a resolver that picks the right gateway per payment and region.</li>
-        <li><strong>Idempotent webhook processing.</strong> Every inbound event is signature-verified per provider, persisted with a uniqueness constraint on <span class="chip" style="padding:1px 5px">provider + event_id</span>, and marked processed exactly once — so duplicate deliveries and retries can't double-credit an account.</li>
-        <li><strong>Sanctions and country validation</strong> on payment methods, because an aviation parts marketplace has export-control exposure that most e-commerce doesn't.</li>
+        <li><strong>Marketplace payouts with Stripe Connect.</strong> Seller onboarding, platform commission and scheduled payouts to sellers — multi-party settlement, in production.</li>
+        <li><strong>Escrow.com integration</strong> for high-value transactions, with reconciliation that keeps escrow state in step with local records rather than trusting a single webhook to arrive.</li>
+        <li><strong>Five gateways behind one interface.</strong> Stripe, Stripe Connect, PayPal, Escrow.com and Wise, so adding a provider doesn't mean rewriting checkout.</li>
+        <li><strong>Exactly-once webhooks.</strong> Every inbound event is verified and processed once, so duplicate deliveries and retries can't double-credit an account.</li>
       </ul>
       <div class="stack">
         <span class="chip is-key">Stripe Connect</span>
@@ -487,7 +560,7 @@
       <p>A multi-tenant school management SaaS — <a href="https://schoolninty.com/">schoolninty.com</a> — built and operated single-handedly. One deployment serves many schools from a shared database and codebase, every query scoped by tenant.</p>
       <ul class="highlights">
         <li><strong>Multi-tenancy done at the data layer</strong>, not bolted on: shared schema with per-school scoping across students, teachers, attendance, fee invoicing, exams, timetables and announcements, plus a separate super-admin plane for school and subscription management.</li>
-        <li><strong>1,486 tests.</strong> Fee invoicing and attendance are the kind of thing parents notice when it's wrong, so the suite is the product's actual safety net.</li>
+        <li><strong>2,300+ tests.</strong> Fee invoicing and attendance are the kind of thing parents notice when it's wrong, so the suite is the product's actual safety net.</li>
         <li><strong>Five dedicated queue workers</strong> — default, high, emails, sms, reports — under Supervisor, so a slow report run never delays a fee reminder.</li>
         <li><strong>Modern stack, deliberately:</strong> Laravel 13 on PHP 8.4, Inertia with Vue 3, PostgreSQL with pgvector, Redis for cache and queues.</li>
       </ul>
@@ -507,19 +580,20 @@
   <section>
     <div class="sec-head">
       <span class="eyebrow">Open source</span>
-      <h2>laravel-webhook-ledger</h2>
+      <h2>Two Laravel packages, both on Packagist.</h2>
     </div>
     <article class="project">
       <div class="project-top">
-        <span class="project-name">Exactly-once webhook processing</span>
-        <span class="project-role">MIT · PHP 8.2–8.4</span>
+        <span class="project-name">laravel-webhook-ledger</span>
+        <span class="project-role">MIT · PHP 8.2+ · Laravel 12/13</span>
       </div>
-      <p>Every payment provider redelivers webhooks — routinely, not occasionally. The obvious guard is a race condition, and on a handler that moves money that race is a double credit:</p>
+      <p class="repo"><a href="https://github.com/zain-ul-abdain/laravel-webhook-ledger">github.com/zain-ul-abdain/laravel-webhook-ledger</a></p>
+      <p><strong>Exactly-once webhook processing.</strong> Every payment provider redelivers webhooks — routinely, not occasionally. The obvious guard is a race condition, and on a handler that moves money that race is a double credit:</p>
       <ul class="highlights">
         <li><strong>The bug most codebases ship:</strong> <span class="chip" style="padding:1px 5px">if (exists) return; else insert;</span> has a gap between the check and the insert. Two concurrent redeliveries both pass the check and both process.</li>
         <li><strong>The fix:</strong> let the database arbitrate. A unique constraint on <span class="chip" style="padding:1px 5px">provider + event_id</span>, with the constraint violation treated as the duplicate signal rather than as an error. No window, because no gap.</li>
         <li><strong>Plus the parts that bite in production:</strong> verification before any write, timestamp tolerance against replay, constant-time comparison, secret rotation, content fingerprinting for providers that send no event id, stale-claim takeover when a worker dies mid-handler, and deliberate replay instead of silent retries.</li>
-        <li><strong>18 tests</strong> covering concurrent redelivery, tampered and replayed signatures, rotation and stale claims — CI across PHP 8.2–8.4 and Laravel 11/12.</li>
+        <li><strong>28 tests</strong> covering concurrent redelivery, tampered and replayed signatures, rotation and stale claims — plus a <strong>10-test integration suite</strong> that installs the package from Packagist into a real Laravel app.</li>
       </ul>
       <div class="stack">
         <span class="chip is-key">Idempotency</span>
@@ -530,18 +604,40 @@
         <span class="chip">Docker</span>
       </div>
     </article>
+
+    <article class="project">
+      <div class="project-top">
+        <span class="project-name">laravel-route-permissions</span>
+        <span class="project-role">MIT · v1.1.0 · PHP 8.2+ · Laravel 12/13</span>
+      </div>
+      <p class="repo"><a href="https://github.com/zain-ul-abdain/laravel-route-permissions">github.com/zain-ul-abdain/laravel-route-permissions</a></p>
+      <p><strong>Permissions built from your named routes.</strong> Instead of a hand-kept list that drifts away from the app, the permission catalogue is scaffolded from the routes you already have, then enforced.</p>
+      <ul class="highlights">
+        <li><strong>Roles and direct grants</strong>, with cached lookups so checks stay cheap.</li>
+        <li><strong>Gate integration</strong> out of the box: <span class="chip" style="padding:1px 5px">@can</span> and policies keep working, because a miss falls through to your existing rules instead of denying.</li>
+        <li><strong>Optional Passport scopes</strong> synced from the same permission names — off by default, and skipped entirely when Passport isn't installed.</li>
+        <li><strong>39 tests</strong>, run against SQLite, PostgreSQL and MySQL, because a SQLite-only suite hides real failures.</li>
+      </ul>
+      <div class="stack">
+        <span class="chip is-key">Authorization</span>
+        <span class="chip is-key">Laravel Gate</span>
+        <span class="chip">Laravel package</span>
+        <span class="chip">Passport</span>
+        <span class="chip">PostgreSQL / MySQL</span>
+      </div>
+    </article>
   </section>
 
   <section>
     <div class="sec-head">
-      <span class="eyebrow">What I'm good at</span>
+      <span class="eyebrow">My specialism</span>
       <h2>The unglamorous half of payments.</h2>
     </div>
     <p>Taking a card payment is a solved problem. What isn't solved, in most codebases I've seen, is what happens when the webhook arrives twice, or never; when a refund is issued against a transfer that already released; when the gateway says one thing and your ledger says another.</p>
     <div class="caps">
       <div class="cap">
         <span class="cap-title">Multi-gateway architecture</span>
-        <p>A single contract per gateway, a resolver to choose between them, and DTOs at the boundary — so adding a provider doesn't mean touching checkout.</p>
+        <p>One interface across gateways, with clean data at the boundary — so adding a provider doesn't mean touching checkout.</p>
       </div>
       <div class="cap">
         <span class="cap-title">Idempotency &amp; webhooks</span>
@@ -579,8 +675,9 @@
     <div class="contact">
       <span class="eyebrow">Get in touch</span>
       <h2>Available for work now.</h2>
-      <p>Open to senior backend or full-stack roles, and to contract work on payments integration specifically — Stripe Connect marketplaces, multi-gateway consolidation, or fixing a webhook pipeline that's double-processing.</p>
+      <p>Send me the bug you can't pin down, the feature that's been sitting in the backlog, or the upgrade nobody wants to touch — small jobs are welcome. I'm also open to senior backend or full-stack roles, and to deeper payments work: Stripe Connect marketplaces, multi-gateway consolidation, or fixing a webhook pipeline that's double-processing.</p>
       <div class="links">
+        <a class="is-primary" href="https://www.upwork.com/freelancers/~0136bacf625bf5fd24">Hire me on Upwork</a>
         <a href="mailto:zainburfat112@gmail.com">zainburfat112@gmail.com</a>
         <a href="tel:+971569106314">+971 56 910 6314</a>
         <a href="https://linkedin.com/in/zain-ul-abdain">linkedin.com/in/zain-ul-abdain</a>
@@ -590,7 +687,7 @@
   </section>
 
   <footer>
-    <span>Zain Ul Abdain · Backend &amp; payments engineering</span>
+    <span>Zain Ul Abdain · Laravel, payments &amp; SaaS engineering</span>
     <span>Built with Laravel, Vue and too much coffee</span>
   </footer>
 
